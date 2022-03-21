@@ -47,13 +47,17 @@ InsertProduct();
   addBtn.addEventListener('click', () => {
     let item = {
       id: productId,
+      // name: document.getElementById("title").innerHTML,
+      // price: document.getElementById("price").innerHTML,
       color: document.getElementById("colors").value,
       quantity: document.getElementById("quantity").value,
+      // imageUrl: document.getElementsByClassName("item__img").src,
+      // altTxt: document.getElementsByClassName("item__img").alt,
     }
     // Initialisation local storage
     // localStorage.clear();
-    let myCart = JSON.parse(localStorage.getItem("cart"));
-    console.log(myCart);
+    const myCart = JSON.parse(localStorage.getItem("cart"));
+    // console.log(myCart);
     // Si le panier n'est pas vide
     if (myCart) {
       let findItem = myCart.find((element) => element.id === item.id && element.color === item.color);
@@ -62,13 +66,13 @@ InsertProduct();
         let newQuantity = parseInt(item.quantity) + parseInt(findItem.quantity);
         findItem.quantity = newQuantity;
         localStorage.setItem("cart", JSON.stringify(myCart));
-        return;
         console.log("hi");
       // Si le produit choisi n'est pas dans le panier
-      } 
-      myCart.push(item);
-      localStorage.setItem("cart", JSON.stringify(myCart));
-      console.log("hello");
+      } else {
+        myCart.push(item);
+        localStorage.setItem("cart", JSON.stringify(myCart));
+        console.log("hello");
+      }
     
     // Si le panier est vide
     } else {
@@ -77,7 +81,7 @@ InsertProduct();
         localStorage.setItem("cart", JSON.stringify(myCart));
         console.log("coucou");
       }
-      // console.log(myCart);
+      console.log(myCart);
   })
 
   
