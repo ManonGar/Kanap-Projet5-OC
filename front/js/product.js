@@ -47,12 +47,8 @@ InsertProduct();
   addBtn.addEventListener('click', () => {
     let item = {
       id: productId,
-      // name: document.getElementById("title").innerHTML,
-      // price: document.getElementById("price").innerHTML,
       color: document.getElementById("colors").value,
       quantity: document.getElementById("quantity").value,
-      // imageUrl: document.getElementsByClassName("item__img").src,
-      // altTxt: document.getElementsByClassName("item__img").alt,
     }
     // Initialisation local storage
     // localStorage.clear();
