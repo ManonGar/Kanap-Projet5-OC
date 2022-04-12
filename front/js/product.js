@@ -79,7 +79,7 @@ const quantityValid = (quantity) => {
 
 /**
  * Save cart in local storage
- * @param { Array } cart
+ * @param { Array.<Object> } cart
  */
 const saveCart = (cart) => {
   localStorage.setItem("cart", JSON.stringify(cart));
@@ -87,7 +87,7 @@ const saveCart = (cart) => {
 
 /**
  * Check if a product with same color and id is already in cart
- * @param { Array } cart
+ * @param { Array.<Object> } cart
  */
 const checkCart = (item, cart) => {
    // If cart exists we look for identical product (same color and id)

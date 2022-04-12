@@ -20,7 +20,7 @@ let myCart = JSON.parse(localStorage.getItem("cart"));
 
 /**
  * Display cart
- * @param { Array } cart
+ * @param { Array.<Object> } cart
  */ 
 const displayCart = async (cart) => {
   if (cart.length !== 0) {
@@ -62,7 +62,7 @@ const displayCart = async (cart) => {
 
 /**
  * Save cart and reload page
- * @param { Array } cart
+ * @param { Array.<Object> } cart
  */ 
 const updateCart = (cart) => {
   localStorage.setItem("cart", JSON.stringify(cart));
@@ -71,7 +71,7 @@ const updateCart = (cart) => {
 
 /**
  * Get and display total amount of cart
- * @param { Array } cart
+ * @param { Array.<Object> } cart
  */ 
 const getTotalAmount = async (cart) => {
   let totalQuantity = 0;
@@ -87,7 +87,7 @@ const getTotalAmount = async (cart) => {
 
 /**
  * Change items quantity in cart
- * @param { Array } cart
+ * @param { Array.<Object> } cart
  */ 
 const changeQuantity = (cart) => {
   const quantityInputs = document.querySelectorAll(".itemQuantity");
@@ -114,7 +114,7 @@ const changeQuantity = (cart) => {
 
 /**
  * Remove item from cart
- * @param { Array } cart
+ * @param { Array.<Object> } cart
  */ 
 const removeItem = (cart) => {
   const deleteButtons = document.querySelectorAll(".deleteItem");
@@ -233,6 +233,7 @@ const validateForm = () => {
 
 /**
  * Post form and send order to server
+ * @param { Array.<Object> } cart
  */ 
 const postForm = (cart) => {
   orderBtn = document.getElementById("order");
