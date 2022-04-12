@@ -1,32 +1,41 @@
-const products_api = "http://localhost:3000/api/products";
+const productsAPI = "http://localhost:3000/api/products";
 
 /**
- * Insert all products in html 
- * 
- */
-const InsertProducts = () => {
-  fetch(products_api)
+ * Get all products using fetch api
+ * @param { String } url
+ * @return { Promise }
+ */ 
+const fetchProducts = async (url) => {
+  await fetch(url)
     .then(function(res) {
       if (res.ok) {
         return res.json();
       }
     })
-    .then(function(products) {
-      for (let p of products) {
-        const productHtml = 
-        `<a href="./product.html?id=${p._id}">
-          <article>
-            <img src="${p.imageUrl}" alt="${p.altTxt}"/>
-            <h3 class="productName"> ${p.name}</h3>
-            <p class="productDescription"> ${p.description}</p>
-          </article>
-        </a>`;
-        document.getElementById("items").insertAdjacentHTML('afterbegin', productHtml);
-      } 
+    .then(function(value) {
+      displayAllProducts(value);
     })
-    .catch((error) => {
+    .catch(function(error) {
       console.log(error);
-    })
+    });
+};
+
+/**
+ * Display all products on index page 
+ * @param { Array } products
+ */
+const displayAllProducts = async (products) => {
+  for (let p of products) {
+    const productHtml = 
+    `<a href="./product.html?id=${p._id}">
+      <article>
+        <img src="${p.imageUrl}" alt="${p.altTxt}"/>
+        <h3 class="productName">${p.name}</h3>
+        <p class="productDescription">${p.description}</p>
+      </article>
+    </a>`;
+    document.getElementById("items").insertAdjacentHTML('afterbegin', productHtml);
+  }  
 }
 
-InsertProducts();
+fetchProducts(productsAPI);
