@@ -121,17 +121,17 @@ const redirectToCart = () => {
  * Add item to cart
  */
 const addToCart = () => {
-    let myItem = {
-      id: productId,
-      color: document.getElementById("colors").value,
-      quantity: document.getElementById("quantity").value,
-    }
-    const myCart = JSON.parse(localStorage.getItem("cart"));
-    
-    if (colorValid(myItem.color) && quantityValid(myItem.quantity)) {
-      checkCart(myItem, myCart);
-      redirectToCart();
-    }
+  let myItem = {
+    id: productId,
+    color: document.getElementById("colors").value,
+    quantity: document.getElementById("quantity").value,
+  }
+  const myCart = JSON.parse(localStorage.getItem("cart"));
+  
+  if (colorValid(myItem.color) && quantityValid(myItem.quantity)) {
+    checkCart(myItem, myCart);
+    redirectToCart();
+  }
 }
 
 fetchProduct(productAPI);

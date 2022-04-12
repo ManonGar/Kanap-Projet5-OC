@@ -23,7 +23,6 @@ const fetchProducts = async (url) => {
 /**
  * Display all products on index page 
  * @param { Array.<Object> } products
- * @return { HTMLElement }
  */
 const displayAllProducts = async (products) => {
   for (let p of products) {
@@ -35,7 +34,7 @@ const displayAllProducts = async (products) => {
         <p class="productDescription">${p.description}</p>
       </article>
     </a>`;
-    return document.getElementById("items").insertAdjacentHTML('afterbegin', productHtml);
+    document.getElementById("items").insertAdjacentHTML('afterbegin', productHtml);
   }  
 }
 
