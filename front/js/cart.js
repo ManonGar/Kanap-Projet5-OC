@@ -238,6 +238,7 @@ const validateForm = () => {
 const postForm = (cart) => {
   orderBtn = document.getElementById("order");
   orderBtn.addEventListener('click', (event) => {
+    event.preventDefault();
     if (validateForm()) {
       let productsID = [];
       for (let p of cart) {
@@ -272,7 +273,6 @@ const postForm = (cart) => {
           console.log(error);
         });
     } else {
-        event.preventDefault();
         alert("Un ou plusieurs champs sont mal renseignés.");
       }
   });
